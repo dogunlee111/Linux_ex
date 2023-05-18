@@ -1,0 +1,337 @@
+leedogun@leedogun-virtual-machine:~/다운로드$ sudo su - root
+[sudo] leedogun 암호: 
+root@leedogun-virtual-machine:~# wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+--2023-05-16 10:31:09--  https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+dl.google.com (dl.google.com) 해석 중... 실패: name resolution에서 일시적인 실패.
+wget: ‘dl.google.com’ 호스트 주소를 해석할 수 없습니다
+root@leedogun-virtual-machine:~# wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+--2023-05-16 10:32:11--  https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+dl.google.com (dl.google.com) 해석 중... 실패: name resolution에서 일시적인 실패.
+wget: ‘dl.google.com’ 호스트 주소를 해석할 수 없습니다
+root@leedogun-virtual-machine:~# ifconfig
+ens33: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.116.130  netmask 255.255.255.0  broadcast 192.168.116.255
+        inet6 fe80::ef14:b708:8f5b:9a60  prefixlen 64  scopeid 0x20<link>
+        ether 00:0c:29:2d:b5:88  txqueuelen 1000  (Ethernet)
+        RX packets 106578  bytes 145110747 (145.1 MB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 20358  bytes 1750897 (1.7 MB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 5389  bytes 473935 (473.9 KB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 5389  bytes 473935 (473.9 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+root@leedogun-virtual-machine:~# wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+--2023-05-16 10:36:40--  https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+dl.google.com (dl.google.com) 해석 중... 142.250.66.78, 2404:6800:4005:801::200e
+다음으로 연결 중: dl.google.com (dl.google.com)|142.250.66.78|:443... 연결했습니다.
+HTTP 요청을 보냈습니다. 응답 기다리는 중... 200 OK
+길이: 94953468 (91M) [application/x-debian-package]
+저장 위치: ‘google-chrome-stable_current_amd64.deb’
+
+google-chrome-stabl 100%[===================>]  90.55M  42.8MB/s    / 2.1s     
+
+2023-05-16 10:36:45 (42.8 MB/s) - ‘google-chrome-stable_current_amd64.deb’ 저장함 [94953468/94953468]
+
+root@leedogun-virtual-machine:~# ls
+google-chrome-stable_current_amd64.deb  snap  test
+root@leedogun-virtual-machine:~# dpkg - i google-chrome-stable_current_amd64.deb
+dpkg: 오류: 명령 옵션이 필요합니다
+
+Type dpkg --help for help about installing and deinstalling packages [*];
+Use 'apt' or 'aptitude' for user-friendly package management;
+Type dpkg -Dhelp for a list of dpkg debug flag values;
+Type dpkg --force-help for a list of forcing options;
+Type dpkg-deb --help for help about manipulating *.deb files;
+
+Options marked [*] produce a lot of output - pipe it through 'less' or 'more' !
+root@leedogun-virtual-machine:~# apt install google-chrome-stable_current_amd64.deb
+패키지 목록을 읽는 중입니다... 완료
+의존성 트리를 만드는 중입니다... 완료
+상태 정보를 읽는 중입니다... 완료        
+E: google-chrome-stable_current_amd64.deb 패키지를 찾을 수 없습니다
+root@leedogun-virtual-machine:~# apt install ./google-chrome-stable_current_amd64.deb
+패키지 목록을 읽는 중입니다... 완료
+의존성 트리를 만드는 중입니다... 완료
+상태 정보를 읽는 중입니다... 완료        
+주의, './google-chrome-stable_current_amd64.deb' 대신에 'google-chrome-stable' 패키지를 선택합니다
+다음 새 패키지를 설치할 것입니다:
+  google-chrome-stable
+0개 업그레이드, 1개 새로 설치, 0개 제거 및 0개 업그레이드 안 함.
+0 바이트/95.0 M바이트 아카이브를 받아야 합니다.
+이 작업 후 315 M바이트의 디스크 공간을 더 사용하게 됩니다.
+받기:1 /root/google-chrome-stable_current_amd64.deb google-chrome-stable amd64 113.0.5672.92-1 [95.0 MB]
+Selecting previously unselected package google-chrome-stable.
+(데이터베이스 읽는중 ...현재 205028개의 파일과 디렉터리가 설치되어 있습니다.)
+Preparing to unpack .../google-chrome-stable_current_amd64.deb ...
+Unpacking google-chrome-stable (113.0.5672.92-1) ...
+google-chrome-stable (113.0.5672.92-1) 설정하는 중입니다 ...
+update-alternatives: using /usr/bin/google-chrome-stable to provide /usr/bin/x-w
+ww-browser (x-www-browser) in auto mode
+update-alternatives: using /usr/bin/google-chrome-stable to provide /usr/bin/gno
+me-www-browser (gnome-www-browser) in auto mode
+update-alternatives: using /usr/bin/google-chrome-stable to provide /usr/bin/goo
+gle-chrome (google-chrome) in auto mode
+Processing triggers for gnome-menus (3.36.0-1ubuntu3) ...
+Processing triggers for man-db (2.10.2-1) ...
+Processing triggers for mailcap (3.70+nmu1ubuntu1) ...
+Processing triggers for desktop-file-utils (0.26-1ubuntu3) ...
+N: Download is performed unsandboxed as root as file '/root/google-chrome-stable_current_amd64.deb' couldn't be accessed by user '_apt'. - pkgAcquire::Run (13: 허가 거부)
+root@leedogun-virtual-machine:~# nano /usr/bin/google-chorme-stable
+root@leedogun-virtual-machine:~# nano /usr/snap/google-chrome-stable
+root@leedogun-virtual-machine:~# google-chorme
+google-chorme: 명령을 찾을 수 없습니다
+root@leedogun-virtual-machine:~# nano /usr/bin/google-chrome-stable
+root@leedogun-virtual-machine:~# google-chrome
+[14129:14129:0516/104839.425158:ERROR:ozone_platform_x11.cc(239)] Missing X server or $DISPLAY
+[14129:14129:0516/104839.426227:ERROR:env.cc(255)] The platform failed to initialize.  Exiting.
+[0516/104839.467458:ERROR:nacl_helper_linux.cc(355)] NaCl helper process running without a sandbox!
+Most likely you need to configure your SUID sandbox correctly
+root@leedogun-virtual-machine:~# nano /usr/bin/google-chrome-stable
+root@leedogun-virtual-machine:~# nano /usr/bin/google-chrome-stable
+root@leedogun-virtual-machine:~# google-chrome
+[14165:14165:0516/105631.028259:ERROR:ozone_platform_x11.cc(239)] Missing X server or $DISPLAY
+[14165:14165:0516/105631.028354:ERROR:env.cc(255)] The platform failed to initialize.  Exiting.
+root@leedogun-virtual-machine:~# [0516/105631.046521:ERROR:nacl_helper_linux.cc(355)] NaCl helper process running without a sandbox!
+Most likely you need to configure your SUID sandbox correctly
+exit
+로그아웃
+leedogun@leedogun-virtual-machine:~/다운로드$ sudo su - root
+[sudo] leedogun 암호: 
+root@leedogun-virtual-machine:~# nano /usr/bin/google-chrome-stable
+root@leedogun-virtual-machine:~# google-chrome
+root@leedogun-virtual-machine:~# [14214:14214:0516/110056.861994:ERROR:ozone_platform_x11.cc(239)] Missing X server or $DISPLAY
+[14214:14214:0516/110056.862049:ERROR:env.cc(255)] The platform failed to initialize.  Exiting.
+[0516/110056.869765:ERROR:nacl_helper_linux.cc(355)] NaCl helper process running without a sandbox!
+Most likely you need to configure your SUID sandbox correctly
+[14228:14228:0100/000000.882175:ERROR:zygote_linux.cc(661)] write: 파이프가 깨어짐 (32)
+eixt
+eixt: 명령을 찾을 수 없습니다
+root@leedogun-virtual-machine:~# google-chrome
+[14254:14254:0516/110127.534197:ERROR:ozone_platform_x11.cc(239)] Missing X server or $DISPLAY
+[14254:14254:0516/110127.534393:ERROR:env.cc(255)] The platform failed to initialize.  Exiting.
+[0516/110127.548631:ERROR:nacl_helper_linux.cc(355)] NaCl helper process running without a sandbox!
+Most likely you need to configure your SUID sandbox correctly
+root@leedogun-virtual-machine:~# [14268:14268:0100/000000.551619:ERROR:zygote_linux.cc(661)] write: 파이프가 깨어짐 (32)
+nano /usr/bin/google-chrome-stable
+root@leedogun-virtual-machine:~# google-chrome
+[14284:14284:0516/110214.776630:ERROR:ozone_platform_x11.cc(239)] Missing X server or $DISPLAY
+[14284:14284:0516/110214.776729:ERROR:env.cc(255)] The platform failed to initialize.  Exiting.
+[0516/110214.782683:ERROR:nacl_helper_linux.cc(355)] NaCl helper process running without a sandbox!
+Most likely you need to configure your SUID sandbox correctly
+root@leedogun-virtual-machine:~# nano /usr/bin/google-chrome-stable
+
+
+나노로 돌아가려면 "fg"를 사용하십시오.
+
+[1]+  멈춤                  nano /usr/bin/google-chrome-stable
+root@leedogun-virtual-machine:~# fg
+nano /usr/bin/google-chrome-stable
+root@leedogun-virtual-machine:~# google-chrome
+[15518:15518:0516/110424.235290:ERROR:zygote_host_impl_linux.cc(100)] Running as root without --no-sandbox is not supported. See https://crbug.com/638180.
+root@leedogun-virtual-machine:~# nano /usr/bin/google-chrome-stable
+root@leedogun-virtual-machine:~# google-chrome
+[15716:15716:0516/110637.134050:ERROR:ozone_platform_x11.cc(239)] Missing X server or $DISPLAY
+[15716:15716:0516/110637.134147:ERROR:env.cc(255)] The platform failed to initialize.  Exiting.
+root@leedogun-virtual-machine:~# [0516/110637.147516:ERROR:nacl_helper_linux.cc(355)] NaCl helper process running without a sandbox!
+Most likely you need to configure your SUID sandbox correctly
+[15730:15730:0100/000000.160679:ERROR:zygote_linux.cc(661)] write: 파이프가 깨어짐 (32)
+wget http://^[[200~http://archive.ubuntu.com/ubuntu/pool/universe/m/mc/
+http://http://archive.ubuntu.com/ubuntu/pool/universe/m/mc/: 부적절한 호스트 이름.
+root@leedogun-virtual-machine:~# wget http://archive.ubuntu.com/ubuntu/pool/universe/m/mc/_4.8.28-1_amd64.deb
+--2023-05-16 11:16:23--  http://archive.ubuntu.com/ubuntu/pool/universe/m/mc/_4.8.28-1_amd64.deb
+archive.ubuntu.com (archive.ubuntu.com) 해석 중... 91.189.91.38, 91.189.91.39, 185.125.190.39, ...
+다음으로 연결 중: archive.ubuntu.com (archive.ubuntu.com)|91.189.91.38|:80... 연결했습니다.
+HTTP 요청을 보냈습니다. 응답 기다리는 중... 404 Not Found
+2023-05-16 11:16:26 오류 404: Not Found.
+
+root@leedogun-virtual-machine:~# wget http://archive.ubuntu.com/ubuntu/pool/universe/n/ncftp/ncftp_
+--2023-05-16 11:19:21--  http://archive.ubuntu.com/ubuntu/pool/universe/n/ncftp/ncftp_
+archive.ubuntu.com (archive.ubuntu.com) 해석 중... 91.189.91.38, 185.125.190.36, 91.189.91.39, ...
+다음으로 연결 중: archive.ubuntu.com (archive.ubuntu.com)|91.189.91.38|:80... 연결했습니다.
+HTTP 요청을 보냈습니다. 응답 기다리는 중... 404 Not Found
+2023-05-16 11:19:24 오류 404: Not Found.
+
+root@leedogun-virtual-machine:~# wget http://archive.ubuntu.com/ubuntu/pool/universe/n/ncftp/ncftp_3.2.6-1_amd64.deb
+--2023-05-16 11:20:11--  http://archive.ubuntu.com/ubuntu/pool/universe/n/ncftp/ncftp_3.2.6-1_amd64.deb
+archive.ubuntu.com (archive.ubuntu.com) 해석 중... 91.189.91.39, 185.125.190.36, 91.189.91.38, ...
+다음으로 연결 중: archive.ubuntu.com (archive.ubuntu.com)|91.189.91.39|:80... 연결했습니다.
+HTTP 요청을 보냈습니다. 응답 기다리는 중... 200 OK
+길이: 338438 (331K) [application/x-debian-package]
+저장 위치: ‘ncftp_3.2.6-1_amd64.deb’
+
+ncftp_3.2.6-1_amd64 100%[===================>] 330.51K   313KB/s    / 1.1s     
+
+2023-05-16 11:20:15 (313 KB/s) - ‘ncftp_3.2.6-1_amd64.deb’ 저장함 [338438/338438]
+
+root@leedogun-virtual-machine:~# dpkg --info ncftp_3.2.6-1_amd64.deb
+ new Debian package, version 2.0.
+ size 338438 bytes: control archive=1292 bytes.
+     588 바이트,    14 줄      control              
+    1194 바이트,    19 줄      md5sums              
+     201 바이트,    10 줄   *  postinst             #!/bin/sh
+     115 바이트,    13 줄   *  prerm                #!/bin/sh
+ Package: ncftp
+ Version: 2:3.2.6-1
+ Architecture: amd64
+ Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+ Original-Maintainer: Noël Köthe <noel@debian.org>
+ Installed-Size: 1122
+ Depends: libc6 (>= 2.34), libncurses6 (>= 6), libtinfo6 (>= 6)
+ Section: net
+ Priority: optional
+ Homepage: https://www.ncftp.com/ncftp/
+ Description: User-friendly and well-featured FTP client
+  Ncftp allows a user to transfer files to and from a remote network
+  site, and offers additional features that are not found in the standard
+  interface, ftp. This version has Readline support enabled.
+root@leedogun-virtual-machine:~# dpkg -i ncftp_3.2.6-1_amd64.deb
+Selecting previously unselected package ncftp.
+(데이터베이스 읽는중 ...현재 205142개의 파일과 디렉터리가 설치되어 있습니다.)
+Preparing to unpack ncftp_3.2.6-1_amd64.deb ...
+Unpacking ncftp (2:3.2.6-1) ...
+ncftp (2:3.2.6-1) 설정하는 중입니다 ...
+update-alternatives: using /usr/bin/ncftp3 to provide /usr/bin/ncftp (ncftp) in auto mode
+Processing triggers for man-db (2.10.2-1) ...
+root@leedogun-virtual-machine:~# dpkg -l ncftp
+희망상태=알수없음(U)/설치(I)/지우기(R)/깨끗이(P)/고정(H)
+| 상태=아님(N)/설치(I)/설정(C)/풀림(U)/절반설정(F)/일부설치(H)/트리거대기(W)/
+| /    트리거밀림(T)
+|/ 오류?=(없음)/다시설치필요(R) (상태, 오류가 대문자=불량)
+||/ 이름           버전         Architecture 설명
++++-==============-============-============-==================================>
+ii  ncftp          2:3.2.6-1    amd64        User-friendly and well-featured FT>
+...skipping...
+희망상태=알수없음(U)/설치(I)/지우기(R)/깨끗이(P)/고정(H)
+| 상태=아님(N)/설치(I)/설정(C)/풀림(U)/절반설정(F)/일부설치(H)/트리거대기(W)/
+| /    트리거밀림(T)
+|/ 오류?=(없음)/다시설치필요(R) (상태, 오류가 대문자=불량)
+||/ 이름           버전         Architecture 설명
++++-==============-============-============-==================================>
+ii  ncftp          2:3.2.6-1    amd64        User-friendly and well-featured FT>
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+lines 1-7/7 (END)
+[1]+  멈춤                  dpkg -l ncftp
+ls        
+ls
+affdsfdsafds                            ncftp_3.2.6-1_amd64.deb  test
+google-chrome-stable_current_amd64.deb  snap
+root@leedogun-virtual-machine:~# ncftp
+NcFTP 3.2.6 (Dec 04, 2016) by Mike Gleason (http://www.NcFTP.com/contact/).
+
+Copyright (c) 1992-2016 by Mike Gleason.
+All rights reserved.
+
+ncftp> ls
+ls: must be connected to do that.
+ncftp> open ftp.ubuntu.com
+Connecting to 185.125.190.36...                                                 
+FTP server (vsftpd)
+Logging in...                                                                   
+Login successful.
+Logged in to ftp.ubuntu.com.                                                    
+ncftp / > ls
+cdimage/                  maas-images/              ubuntu/
+cloud-images/             old-images/               ubuntu-cloud-archive/
+extras/                   releases/                 ubuntu-ports/
+lxc-images/               simple-streams/
+ncftp / > cd ubuntu
+Directory successfully changed.
+ncftp /ubuntu > ls
+dists/     indices/   ls-lR.gz   pool/      project/   ubuntu@
+ncftp /ubuntu > cd pool
+Directory successfully changed.
+ncftp /ubuntu/pool > cd universe
+Directory successfully changed.
+ncftp /ubuntu/pool/universe > cd n
+Directory successfully changed.
+ncftp /ubuntu/pool/universe/n > cd ncftp
+Directory successfully changed.
+ncftp .../pool/universe/n/ncftp > ls
+ncftp_3.2.5-1.1.diff.gz                ncftp_3.2.5-2.2.dsc
+ncftp_3.2.5-1.1.dsc                    ncftp_3.2.5-2.2_amd64.deb
+ncftp_3.2.5-1.1_amd64.deb              ncftp_3.2.5-2.debian.tar.xz
+ncftp_3.2.5-1.1_i386.deb               ncftp_3.2.5-2.dsc
+ncftp_3.2.5-1.1build1.diff.gz          ncftp_3.2.5-2_amd64.deb
+ncftp_3.2.5-1.1build1.dsc              ncftp_3.2.5-2_i386.deb
+ncftp_3.2.5-1.1build1_amd64.deb        ncftp_3.2.5.orig.tar.gz
+ncftp_3.2.5-1.1build1_i386.deb         ncftp_3.2.6-1.debian.tar.xz
+ncftp_3.2.5-2.1.debian.tar.xz          ncftp_3.2.6-1.dsc
+ncftp_3.2.5-2.1.dsc                    ncftp_3.2.6-1_amd64.deb
+ncftp_3.2.5-2.1_amd64.deb              ncftp_3.2.6.orig.tar.gz
+ncftp_3.2.5-2.2.debian.tar.xz
+ncftp .../pool/universe/n/ncftp > exit
+root@leedogun-virtual-machine:~# cd 다운로드
+-bash: cd: 다운로드: 그런 파일이나 디렉터리가 없습니다
+root@leedogun-virtual-machine:~# cd /home/leedogun/다운로드
+root@leedogun-virtual-machine:/home/leedogun/다운로드# ^C
+root@leedogun-virtual-machine:/home/leedogun/다운로드# ^C
+root@leedogun-virtual-machine:/home/leedogun/다운로드# cd ubuntu
+-bash: cd: ubuntu: 그런 파일이나 디렉터리가 없습니다
+root@leedogun-virtual-machine:/home/leedogun/다운로드# google-chrome
+[16375:16375:0516/112846.445684:ERROR:ozone_platform_x11.cc(239)] Missing X server or $DISPLAY
+[16375:16375:0516/112846.445763:ERROR:env.cc(255)] The platform failed to initialize.  Exiting.
+root@leedogun-virtual-machine:/home/leedogun/다운로드# [0516/112846.467089:ERROR:nacl_helper_linux.cc(355)] NaCl helper process running without a sandbox!
+Most likely you need to configure your SUID sandbox correctly
+^C
+root@leedogun-virtual-machine:/home/leedogun/다운로드# nano /usr/bin/google-chrome-stable
+root@leedogun-virtual-machine:/home/leedogun/다운로드# google-chrome
+[16409:16409:0516/113010.157061:ERROR:ozone_platform_x11.cc(239)] Missing X server or $DISPLAY
+[16409:16409:0516/113010.157216:ERROR:env.cc(255)] The platform failed to initialize.  Exiting.
+[0516/113010.177647:ERROR:nacl_helper_linux.cc(355)] NaCl helper process running without a sandbox!
+Most likely you need to configure your SUID sandbox correctly
+root@leedogun-virtual-machine:/home/leedogun/다운로드# nano /usr/bin/google-chrome-stable
+root@leedogun-virtual-machine:/home/leedogun/다운로드# nano /usr/bin/google-chrome-stable
+root@leedogun-virtual-machine:/home/leedogun/다운로드# google-chrome
+[16637:16637:0516/113130.325939:ERROR:ozone_platform_x11.cc(239)] Missing X server or $DISPLAY
+[16637:16637:0516/113130.326277:ERROR:env.cc(255)] The platform failed to initialize.  Exiting.
+[0516/113130.345542:ERROR:nacl_helper_linux.cc(355)] NaCl helper process running without a sandbox!
+Most likely you need to configure your SUID sandbox correctly
+root@leedogun-virtual-machine:/home/leedogun/다운로드# dpkg -r ncftp
+(데이터베이스 읽는중 ...현재 205162개의 파일과 디렉터리가 설치되어 있습니다.)
+ncftp (2:3.2.6-1)를 제거합니다...
+Processing triggers for man-db (2.10.2-1) ...
+root@leedogun-virtual-machine:/home/leedogun/다운로드# dpkg -r mc-4.8.28-1_amd64.deb
+dpkg: 오류: 패키지를 패키지 이름으로 지정해야 합니다. 패키지 파일 이름이 아닙니다
+
+Type dpkg --help for help about installing and deinstalling packages [*];
+Use 'apt' or 'aptitude' for user-friendly package management;
+Type dpkg -Dhelp for a list of dpkg debug flag values;
+Type dpkg --force-help for a list of forcing options;
+Type dpkg-deb --help for help about manipulating *.deb files;
+
+Options marked [*] produce a lot of output - pipe it through 'less' or 'more' !
+root@leedogun-virtual-machine:/home/leedogun/다운로드# dpkg -i mc-4.8.28-1_amd64.deb
+dpkg: 오류: cannot access archive 'mc-4.8.28-1_amd64.deb': 그런 파일이나 디렉터리가 없습니다
+root@leedogun-virtual-machine:/home/leedogun/다운로드# dpkg -l mc
+희망상태=알수없음(U)/설치(I)/지우기(R)/깨끗이(P)/고정(H)
+| 상태=아님(N)/설치(I)/설정(C)/풀림(U)/절반설정(F)/일부설치(H)/트리거대기(W)/
+| /    트리거밀림(T)
+|/ 오류?=(없음)/다시설치필요(R) (상태, 오류가 대문자=불량)
+||/ 이름           버전         Architecture 설명
++++-==============-============-============-=================================
+un  mc             <none>       <none>       (설명 없음)
+root@leedogun-virtual-machine:/home/leedogun/다운로드# dpkg -r mc
+dpkg: 경고: 설치되어 있지 않은 mc를 제거하는 요청을 무시합니다
+root@leedogun-virtual-machine:/home/leedogun/다운로드# 
